@@ -128,17 +128,36 @@ var watchList = [
    },
 ];
 
+// still need one more method here to finish the function missing the division of
+// the movie avg and the directedBy.length
 function reduceMethod(watchList) {
-   var averageRating = watchList
-      .filter((film) => film.Director === "Christopher Nolan")
-      .map((film) => Number(film.imdbRating))
-      .reduce((sumRatings, rating) => sumRatings + rating);
-   watchList.filter((film) => film.Director === "Christopher Nolan").length;
+   var averageRating;
+   var directedBy = watchList.filter(
+      (film) => film["Director"] === "Christopher Nolan"
+   ).length;
+   console.log(directedBy);
+   var ratingOf = watchList.map((rating) => parseInt(rating["imdbRating"]));
+   console.log(ratingOf);
+   var movieAvg = ratingOf.reduce(
+      (sumRatingOf, rating) => sumRatingOf + rating
+   );
+   console.log(movieAvg);
    return averageRating;
 }
 console.log(reduceMethod(watchList));
 
 // High Order-Functions to Solve Square of Array
+// A1: using filter to remove negative numbers
+// A2: using filter to remove decimals
+// R: the square of only the positive numbers
+function higherOrder(arr) {
+   var newArr = arr.filter((num) => parseInt(num) > 0);
+   console.log(newArr);
+   var nonDecimalArr = newArr.filter((num) => Number.isInteger(num));
+   console.log(nonDecimalArr);
+   console.log(arr);
+   return nonDecimalArr.map((num) => Math.pow(num, 2));
+}
 
 // Sort an Array Alphabetically
 // A1: the callback function of alphabetically Order is being used for the array
