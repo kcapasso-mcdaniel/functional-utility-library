@@ -131,7 +131,8 @@ var watchList = [
 // Reduce Method
 // A1: filter the names of the movie director from the array
 // A2: map pulls a new array of the ratings, parseInt changes the rating from a string to an integer
-// A3: reduce method is used to find the average sum of the ratings
+// A3: reduce method is used to find the average sum of the ratings divided by the filtered director list
+// R: the average sum of the rating
 function reduceMethod(watchList, name) {
    var averageRating =
       watchList
