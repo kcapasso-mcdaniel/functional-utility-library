@@ -128,26 +128,25 @@ var watchList = [
    },
 ];
 
-// still need one more method here to finish the function missing the division of
-// the movie avg and the directedBy.length
-function reduceMethod(watchList) {
-   var averageRating;
-   var directedBy = watchList.filter(
-      (film) => film["Director"] === "Christopher Nolan"
-   ).length;
-   console.log(directedBy);
-   var ratingOf = watchList.map((rating) => parseInt(rating["imdbRating"]));
-   console.log(ratingOf);
-   var movieAvg = ratingOf.reduce(
-      (sumRatingOf, rating) => sumRatingOf + rating
-   );
-   console.log(movieAvg);
+// Reduce Method
+// A1: filter the names of the movie director from the array
+// A2: map pulls a new array of the ratings, parseInt changes the rating from a string to an integer
+// A3: reduce method is used to find the average sum of the ratings
+function reduceMethod(watchList, name) {
+   var averageRating =
+      watchList
+         .filter((film) => film["Director"] === name)
+
+         .map((rating) => parseInt(rating["imdbRating"]))
+
+         .reduce((sumRatingOf, rating) => sumRatingOf + rating) /
+      watchList.filter((film) => film["Director"] === name).length;
+
    return averageRating;
 }
-console.log(reduceMethod(watchList));
 
 // High Order-Functions to Solve Square of Array
-// A1: using filter to remove negative numbers
+// A1: using filter to remove negative numbers - parseInt is used to account for items being a string
 // A2: using filter to remove decimals
 // R: the square of only the positive numbers
 function higherOrder(arr) {
