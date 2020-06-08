@@ -1,5 +1,24 @@
 // Your functions go here!
 
+// Implement filter on a prototype
+Array.prototype.myFilter = function (callback) {
+   var newArray = [];
+   for (i = 0; i < this.length; i++) {
+      if (callback(this[i]) === true) {
+         newArray.push(this[i]);
+      }
+   }
+   return newArray;
+};
+
+function filterMe(array) {
+   var result = array.myFilter(function (number) {
+      return number % 2 === 1;
+   });
+   console.log(result);
+   return result;
+}
+
 // Return Array Slice Function
 // A1: slicing a portion of the array and making it a new array
 // R: the new array
